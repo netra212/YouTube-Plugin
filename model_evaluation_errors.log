@@ -1,0 +1,2 @@
+2025-02-07 12:43:37,667 - model_evaluation - ERROR - Error loading model from /Users/netrakc/Desktop/YouTube-Plugin/lgbm_model.pkl: No module named 'lightgbm'
+2025-02-07 12:43:37,667 - model_evaluation - ERROR - Failed to complete model evaluation: No module named 'lightgbm'
