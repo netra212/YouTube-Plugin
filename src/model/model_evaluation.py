@@ -11,7 +11,7 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import json
-from mlflow.models import infer_signature
+from mlflow.models import infer_signature # this is for adding the model signature.
 
 # logging configuration
 logger = logging.getLogger('model_evaluation')
