@@ -1,5 +1,3 @@
-# app.py
-
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend before importing pyplot
 
@@ -18,8 +16,9 @@ from nltk.stem import WordNetLemmatizer
 from mlflow.tracking import MlflowClient
 import matplotlib.dates as mdates
 
+
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)  # Enable CORS for all routes # to make the communication with api and chrome plugin. 
 
 # Define the preprocessing function
 def preprocess_comment(comment):
@@ -54,7 +53,8 @@ def preprocess_comment(comment):
 def load_model_and_vectorizer(model_name, model_version, vectorizer_path):
     # Set MLflow tracking URI to your server
     
-    mlflow.set_tracking_uri("http://ec2-3-83-25-238.compute-1.amazonaws.com:5000")  # Replace with your MLflow tracking URI
+    mlflow.set_tracking_uri("http://ec2-54-85-7-86.compute-1.amazonaws.com:5000")  # Replace with your MLflow tracking URI
+
     client = MlflowClient()
     model_uri = f"models:/{model_name}/{model_version}"
     model = mlflow.pyfunc.load_model(model_uri)
@@ -62,7 +62,7 @@ def load_model_and_vectorizer(model_name, model_version, vectorizer_path):
     return model, vectorizer
 
 # Initialize the model and vectorizer
-model, vectorizer = load_model_and_vectorizer("my_model", "1", "./tfidf_vectorizer.pkl")  # Update paths and versions as needed
+model, vectorizer = load_model_and_vectorizer("yt_chrome_plugin_model", "1", "./tfidf_vectorizer.pkl")  # Update paths and versions as needed
 
 @app.route('/')
 def home():
@@ -102,7 +102,7 @@ def predict_with_timestamps():
 def predict():
     data = request.json
     comments = data.get('comments')
-    
+
     if not comments:
         return jsonify({"error": "No comments provided"}), 400
 
