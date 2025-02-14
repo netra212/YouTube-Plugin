@@ -109,6 +109,7 @@ def log_confusion_matrix(cm, dataset_name):
     mlflow.log_artifact(cm_file_path)
     plt.close()
 
+
 def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
     """Save the model run ID and path to a JSON file."""
     try:
@@ -127,8 +128,10 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
 
 
 def main():
-    mlflow.set_tracking_uri("http://ec2-44-203-67-52.compute-1.amazonaws.com:5000/")
+    # Providing our mlflow tracking server. 
+    mlflow.set_tracking_uri("http://ec2-18-212-174-174.compute-1.amazonaws.com:5000/")
 
+    # In future, what ever the experiment will happens, It will log into this experiments. 
     mlflow.set_experiment('dvc-pipeline-final-experiment')
     
     with mlflow.start_run() as run:
@@ -141,7 +144,7 @@ def main():
             for key, value in params.items():
                 mlflow.log_param(key, value)
             
-            # Load model and vectorizer
+            # Load model and vectorizer. 
             model = load_model(os.path.join(root_dir, 'lgbm_model.pkl'))
             vectorizer = load_vectorizer(os.path.join(root_dir, 'tfidf_vectorizer.pkl'))
 
@@ -199,6 +202,7 @@ def main():
         except Exception as e:
             logger.error(f"Failed to complete model evaluation: {e}")
             print(f"Error: {e}")
+
 
 if __name__ == '__main__':
     main()

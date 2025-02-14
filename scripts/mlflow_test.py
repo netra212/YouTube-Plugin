@@ -2,7 +2,9 @@ import mlflow
 import random 
 
 # set the mlflow tracking uri. 
-mlflow.set_tracking_uri("....")
+# my ec2 instance name is: mlflow-ec2-server1
+# http://ec2-18-234-77-157.compute-1.amazonaws.com:5000/#/experiments/0?searchFilter=&orderByKey=attributes.start_time&orderByAsc=false&startTime=ALL&lifecycleFilter=Active&modelVersionFilter=All+Runs&datasetsFilter=W10%3D
+mlflow.set_tracking_uri("http://ec2-18-234-77-157.compute-1.amazonaws.com:5000/")
 
 # start an mlflow run. 
 with mlflow.start_run():

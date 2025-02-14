@@ -5,8 +5,7 @@ import mlflow
 import logging
 import os
 
-# Set up MLflow tracking URI
-mlflow.set_tracking_uri("http://ec2-44-203-67-52.compute-1.amazonaws.com:5000/")
+mlflow.set_tracking_uri("http://ec2-18-212-174-174.compute-1.amazonaws.com:5000/")
 
 # logging configuration
 logger = logging.getLogger('model_registration')
@@ -63,6 +62,7 @@ def register_model(model_name: str, model_info: dict):
 
 def main():
     try:
+        # experiment info contains runs id and model name. 
         model_info_path = 'experiment_info.json'
         model_info = load_model_info(model_info_path)
         
