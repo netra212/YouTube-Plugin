@@ -129,7 +129,7 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
 
 def main():
     # Providing our mlflow tracking server. 
-    mlflow.set_tracking_uri("http://ec2-18-212-174-174.compute-1.amazonaws.com:5000/")
+    mlflow.set_tracking_uri("http://ec2-3-83-25-238.compute-1.amazonaws.com:5000")
 
     # In future, what ever the experiment will happens, It will log into this experiments. 
     mlflow.set_experiment('dvc-pipeline-final-experiment')
