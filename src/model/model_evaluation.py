@@ -158,7 +158,7 @@ def main():
             input_example = pd.DataFrame(X_test_tfidf.toarray()[:5], columns=vectorizer.get_feature_names_out())  # <--- Added for signature
 
             # Infer the signature
-            signature = infer_signature(input_example, model.predict(X_test_tfidf[:5]))  # <--- Added for signature
+            signature = infer_signature(input_example, model.predict(X_test_tfidf[:5]))  # <--- Added for signature like means Input shape that models expect. 
 
             # Log model with signature
             mlflow.sklearn.log_model(
