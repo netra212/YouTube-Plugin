@@ -3,10 +3,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const outputDiv = document.getElementById("output");
     const API_KEY = 'AIzaSyDjojcexvGm6QDTbshaJauVPG8ia80P7OI'; 
-    const API_URL = 'http://ec2-54-211-17-247.compute-1.amazonaws.com:5000/'; // need to pass aws location. 
+    const API_URL = 'http://ec2-34-203-215-138.compute-1.amazonaws.com:5000'; // need to pass aws location. 
   
-    // This is my 
-    // http://ec2-54-211-17-247.compute-1.amazonaws.com:5000
 
     // Get the current tab's URL
     chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
