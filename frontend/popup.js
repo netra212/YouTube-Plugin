@@ -2,9 +2,12 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
     const outputDiv = document.getElementById("output");
-    const API_KEY = 'YOUR_API_KEY';  // Replace with your actual YouTube Data API key
-    const API_URL = 'http://my-elb-2062136355.us-east-1.elb.amazonaws.com:80';
+    const API_KEY = 'AIzaSyDjojcexvGm6QDTbshaJauVPG8ia80P7OI'; 
+    const API_URL = 'http://ec2-54-211-17-247.compute-1.amazonaws.com:5000/'; // need to pass aws location. 
   
+    // This is my 
+    // http://ec2-54-211-17-247.compute-1.amazonaws.com:5000
+
     // Get the current tab's URL
     chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
       const url = tabs[0].url;
@@ -37,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
           });
   
-          // Compute metrics
+          // Compute metrics.
           const totalComments = comments.length;
           const uniqueCommenters = new Set(comments.map(comment => comment.authorId)).size;
           const totalWords = comments.reduce((sum, comment) => sum + comment.text.split(/\s+/).filter(word => word.length > 0).length, 0);

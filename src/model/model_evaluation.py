@@ -30,7 +30,6 @@ file_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
-
 def load_data(file_path: str) -> pd.DataFrame:
     """Load data from a CSV file."""
     try:
@@ -129,7 +128,7 @@ def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
 
 def main():
     # Providing our mlflow tracking server. 
-    mlflow.set_tracking_uri("http://ec2-184-72-115-84.compute-1.amazonaws.com:5000/")
+    mlflow.set_tracking_uri("http://ec2-54-211-17-247.compute-1.amazonaws.com:5000/")
 
     # In future, what ever the experiment will happens, It will log into this experiments. 
     mlflow.set_experiment('dvc-pipeline-final-experiment')
