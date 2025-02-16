@@ -51,7 +51,8 @@ jobs:
       - name: Add changes to Git
         run: |
           git add .
-
+      
+      # Allowig Github Actions Bot to push the code. 
       - name: Commit changes
         if: ${{ github.actor != 'github-actions[bot]' }}
         run: |
