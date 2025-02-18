@@ -1,5 +1,4 @@
 # app.py
-
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend before importing pyplot
 
