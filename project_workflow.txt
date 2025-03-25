@@ -1,0 +1,45 @@
+src:
+    data:
+        data_ingestion
+            —> url fetch
+            —> data cleaning. 
+                    —> Missing value drop. 
+                    —> duplicates. 
+                    —> empty string check. 
+            —> train_test_split. 
+            —> store data/raw.
+	
+        data_preprocessing
+            —> fetch data/raw…. Train and test. 
+            —> performs preprocessing. 
+                —> Converting into lowercase. 
+                —> url remove. 
+                —> remove stopwords. 
+                —> performs lemmatization.
+            —> store data/interim.
+
+    model:
+        model_building
+            —> fetch data/interim. Both train and test. 
+            —> Implement TFIDF —> trigrams and max_features = 10000.
+            —> Model building. 
+                —> LightGBM. 
+                -> model train
+            —> Model save.
+            -> saving vectorizer.pkl 
+
+        model Evaluation.
+            —> fetch data i.e., test data from interim.
+            —> Implements TFIDf. 
+            —> Model building. 
+                —> LightGBM. 
+            —> Model Loading. 
+
+        Register Model.
+
+
+dvc.yaml : 
+    Contains all the codes which helps to connect all the above stages. 
+
+params.yaml:
+    To keep the variables. such as train_test_ratio, max_depth, Hyperparameter of LightGBM. 
