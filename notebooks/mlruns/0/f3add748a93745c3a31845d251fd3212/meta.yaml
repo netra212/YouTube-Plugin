@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/netrakc/Desktop/YouTube-Plugin/notebooks/mlruns/0/f3add748a93745c3a31845d251fd3212/artifacts
+end_time: 1742893571114
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f3add748a93745c3a31845d251fd3212
+run_name: monumental-pig-44
+run_uuid: f3add748a93745c3a31845d251fd3212
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742893571047
+status: 3
+tags: []
+user_id: netrakc

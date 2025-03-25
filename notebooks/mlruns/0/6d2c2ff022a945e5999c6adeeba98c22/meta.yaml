@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/netrakc/Desktop/YouTube-Plugin/notebooks/mlruns/0/6d2c2ff022a945e5999c6adeeba98c22/artifacts
+end_time: 1742893564474
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6d2c2ff022a945e5999c6adeeba98c22
+run_name: bald-mink-371
+run_uuid: 6d2c2ff022a945e5999c6adeeba98c22
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742893564450
+status: 4
+tags: []
+user_id: netrakc

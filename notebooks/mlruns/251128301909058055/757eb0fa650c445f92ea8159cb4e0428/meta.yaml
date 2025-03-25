@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/netrakc/Desktop/YouTube-Plugin/notebooks/mlruns/251128301909058055/757eb0fa650c445f92ea8159cb4e0428/artifacts
+end_time: 1742893718637
+entry_point_name: ''
+experiment_id: '251128301909058055'
+lifecycle_stage: active
+run_id: 757eb0fa650c445f92ea8159cb4e0428
+run_name: likeable-turtle-730
+run_uuid: 757eb0fa650c445f92ea8159cb4e0428
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1742893718580
+status: 3
+tags: []
+user_id: netrakc
