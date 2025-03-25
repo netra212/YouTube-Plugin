@@ -12,4 +12,5 @@
     screen -S mlflow
     mlflow server --backend-store-uri./mlruns --default-artifact-root s3://my-s3-bucket name --host 0.0.0.0 --port 5000
     setup security group
-    
+
+-> screen : whenever the ec2 instance stop running, even the mlflow get started automatically so for that we have to use the screen. 
