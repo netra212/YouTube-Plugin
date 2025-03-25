@@ -1,0 +1,41 @@
+1. SMOTEENN
+    -> -1 Class:
+        * F1-Score: 0.849 (Best among all methods)
+        * Precision: 0.883 (Best among all methods)
+        * Recall: 0.819 (Best among all methods)
+        * Summary: SMOTEENN handles class -1 exceptionally well, leading in all three metrics. 
+    
+    -> 0 Class:
+        * F1-Score: 0.806 (Strongly, only slightly behind class weight)
+        * Precision: 0.726
+        * Recall: 0.905 (Best among all methods)
+        * Summary: Strong Performance on class 0, particularly in recall, although precision could be improved. 
+
+    -> 1 Class:
+        * F1-Score: 0.08 (Extremely low)
+        * Precision: 1.00 (Perfect Precision but very low recall)
+        * Recall: 0.905 (Extremely poor recall, leading to very low F1)
+        * Summary: Thsi methods fails to handle class 1 effectively. The perfect precision is misleading since it misses a large portion of class1 instances, as indicated by its recall.
+
+        -> Accuracy: 0.799 (Best among all methods).
+        -> Macro Avg (F1-Score): 0.578
+        -> Macro Avg (Precision): 0.87 (Best precision overall)
+        -> Macro Avg (Recall): 0.589
+        -> Weighted Avg (F1-score): 0.775 (Best Weighted F1)
+
+Conclusion: SMOTEENN is excellent for class -1 and class 0, but fails at class 1. It has the best overall precision but lacks balance due to poor class 1 recall. 
+
+2. Undersampling:
+    -> -1 class:
+        - F1-score: 0.595
+        - Precision: 0.732
+        - Recall: 0.501
+        - Summary: Undersampling is weak on class -1. While precision is decent, recall is low, leading to a lower F1-score. 
+
+    -> 0 class:
+        - F1-score: 0.729
+        - Precision: 0.599 (Lowest among all methods)
+        - Recall: 0.93 (Best recall among all methods)
+        
+
+        
