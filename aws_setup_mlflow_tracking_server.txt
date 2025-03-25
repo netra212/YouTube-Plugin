@@ -1,0 +1,15 @@
+1. Create EC2 Instance. 
+    sudo apt-get update
+    sudo apt-get install python3 python3-venc python3-pip-y
+    python3 -m venv mlflow_env
+    source mlflow_env/bin/activate
+    pip list
+
+2. Create S2 Bucket. 
+    setup IAM Role -> AmazonS3FullAccess -> EC2-mlflow-s3-access
+
+    sudo apt-get install screen -y
+    screen -S mlflow
+    mlflow server --backend-store-uri./mlruns --default-artifact-root s3://my-s3-bucket name --host 0.0.0.0 --port 5000
+    setup security group
+    
