@@ -60,12 +60,12 @@ stages:
     outs:
     - path: lgbm_model.pkl
       hash: md5
-      md5: b28d316bbc83ccfb10650d7de39fbb9d
-      size: 4091568
+      md5: 9b94e8c639b7267d019332ce3c9bf100
+      size: 4091569
     - path: tfidf_vectorizer.pkl
       hash: md5
-      md5: ca80e0a736507528b81055c14dfbe716
-      size: 384168
+      md5: 553d035371956a196c06e4b127baade0
+      size: 384192
   model_evaluation:
     cmd: python src/model/model_evaluation.py
     deps:
