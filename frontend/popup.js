@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
   const outputDiv = document.getElementById("output");
-  const API_KEY = 'AIzaSyDCU2IL6mrbIwidhsXNGZ3fUsyog2T426I';
+  const API_KEY = '......replace own api key........';
   // In this case, Not providing the aws 
   const API_URL = 'http://127.0.0.1:5001'; 
 
