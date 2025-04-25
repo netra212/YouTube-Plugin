@@ -2,7 +2,7 @@ import pytest
 import requests
 import json
 
-# http://ec2-34-203-215-138.compute-1.amazonaws.com:5000/#/models/yt_chrome_plugin_model
+# http://ec2-3-92-195-59.compute-1.amazonaws.com:5000/
 
 BASE_URL = "http://localhost:5000"  # Replace with your deployed URL if needed
 
