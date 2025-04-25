@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import mlflow
 
 # Set your remote tracking URI
-mlflow.set_tracking_uri("http://ec2-34-203-215-138.compute-1.amazonaws.com:5000/")
+mlflow.set_tracking_uri("http://ec2-3-92-195-59.compute-1.amazonaws.com:5000/")
 
 @pytest.mark.parametrize("model_name, stage, holdout_data_path, vectorizer_path", [
     ("yt_chrome_plugin_model", "staging", "data/interim/test_processed.csv", "tfidf_vectorizer.pkl"),  # Replace with your actual paths
