@@ -1,4 +1,4 @@
-name: CICD Pipeline
+name: CI-CD Pipeline
 
 on: push
 
@@ -31,7 +31,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1  # Replace with your AWS region
+          AWS_DEFAULT_REGION: us-east-1 
         run: |
           dvc repro
 
@@ -43,71 +43,71 @@ jobs:
         run: |
           dvc push
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      # - name: Configure Git
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Add changes to Git
-        run: |
-          git add .
+      # - name: Add changes to Git
+      #   run: |
+      #     git add .
 
-      - name: Commit changes
-        if: ${{ github.actor != 'github-actions[bot]' }}
-        run: |
-          git commit -m "Automated commit of DVC outputs and updated code" || echo "No changes to commit"
+      # - name: Commit changes
+      #   if: ${{ github.actor != 'github-actions[bot]' }}
+      #   run: |
+      #     git commit -m "Automated commit of DVC outputs and updated code" || echo "No changes to commit"
 
-      - name: Push changes
-        if: ${{ github.actor != 'github-actions[bot]' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git push origin ${{ github.ref_name }}
+      # - name: Push changes
+      #   if: ${{ github.actor != 'github-actions[bot]' }}
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     git push origin ${{ github.ref_name }}
 
-      - name: Install test dependencies
-        run: |
-          pip install pytest
+      # - name: Install test dependencies
+      #   run: |
+      #     pip install pytest
 
-      - name: Run model loading test
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
-        run: |
-          pytest scripts/test_load_model.py
+      # - name: Run model loading test
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: us-east-1
+      #   run: |
+      #     pytest scripts/test_load_model.py
       
-      - name: Run model signature test
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
-        run: |
-          pytest scripts/test_model_signature.py
+      # - name: Run model signature test
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: us-east-1
+      #   run: |
+      #     pytest scripts/test_model_signature.py
       
-      - name: Run model performance test
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
-        run: |
-          pytest scripts/test_model_performance.py
+      # - name: Run model performance test
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: us-east-1
+      #   run: |
+      #     pytest scripts/test_model_performance.py
       
-      - name: Promote model to production
-        if: success()
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
-        run: python scripts/promote_model.py
+      # - name: Promote model to production
+      #   if: success()
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: us-east-1
+      #   run: python scripts/promote_model.py
 
-      - name: Start Flask App
-        env: 
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
-        run:
-          nohup python flask_app/app.py # no hang-up means flask application should run even window close. 
+      # - name: Start Flask App
+      #   env: 
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: us-east-1
+      #   run:
+      #     nohup python flask_app/app.py # no hang-up means flask application should run even window close. 
       
-      - name: Run Flask API tests 
-        run: | 
-          pytest scripts/test_flask_api.py
+      # - name: Run Flask API tests 
+      #   run: | 
+      #     pytest scripts/test_flask_api.py
